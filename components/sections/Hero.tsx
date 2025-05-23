@@ -147,18 +147,18 @@ const Hero = ({
       {/* Left side - Headings */}
       <div className="w-full sm:max-w-4xl" ref={headingRef}>
        <SectionTitle 
-        variant="white"
-        size="large"
-        className="text-center sm:text-left"
-       >
-        {mainHeading}
-       </SectionTitle>
-       <SectionTitle 
         variant="gradient"
         size="large"
         className="text-center sm:text-left"
        >
         {highlightedHeading}
+       </SectionTitle>
+       <SectionTitle 
+        variant="white"
+        size="default"
+        className="text-center sm:text-left"
+       >
+        {mainHeading}
        </SectionTitle>
       </div>
 
