@@ -1,0 +1,37 @@
+{
+ "compilerOptions": {
+  "lib": ["dom", "dom.iterable", "esnext"],
+  "allowJs": true,
+  "skipLibCheck": true,
+  "strict": true,
+  "noEmit": true,
+  "esModuleInterop": true,
+  "module": "esnext",
+  "moduleResolution": "bundler",
+  "resolveJsonModule": true,
+  "isolatedModules": true,
+  "jsx": "preserve",
+  "incremental": true,
+  "plugins": [
+   {
+    "name": "next"
+   }
+  ],
+  "paths": {
+   "@/*": ["./*"]
+  },
+  "target": "ES2017"
+ },
+ "include": [
+  "next-env.d.ts",
+  "**/*.ts",
+  "**/*.tsx",
+  ".next/types/**/*.ts",
+  "sanity/schemaTypes/clients/clientSection.js",
+  "sanity/schemaTypes/clients/clientLogo.js",
+  "sanity/schemaTypes/index.js",
+  "utils/sectionRenderer.js",
+  "utils/portfolioSectionRenderer.js"
+, "sanity/schemaTypes/package.js", "sanity/schemaTypes/subPackage.js", "sanity/schemaTypes/booking.js" ],
+ "exclude": ["node_modules"]
+}

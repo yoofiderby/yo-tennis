@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+ --background: #F5F5F7;
+ --foreground: #ededed;
+}
+
+html {
+ scroll-behavior: smooth;
+ scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+ display: none;
+}
+html {
+ scroll-behavior: smooth;
+ scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+ display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+ :root {
+  --background: #F5F5F7;
+  --foreground: #ededed;
+ }
+}
+
+body {
+ color: var(--foreground);
+ background: var(--background);
+ font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+ .text-balance {
+  text-wrap: balance;
+ }
+ /* width */
+ ::-webkit-scrollbar {
+  width: 10px;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+ }
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+ }
+}
+
+.grey-image {
+ filter: contrast(0.7);
+}
+
+/* Custom styles for Swiper pagination dots */
+.mySwiper .swiper-pagination-bullet {
+ background-color: transparent;
+ border: 1px solid white;
+ opacity: 1;
+}
+.mySwiper .swiper-pagination {
+ position: relative;
+ margin-top: 24px;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+ background-color: rgba(255, 184, 77, 1);
+ border: none;
+}
+/* Remove padding/margin around Swiper container */
+.mySwiper {
+ padding: 0 !important;
+ margin: 0 !important;
+}
+
+/* Adjust slide padding/margin if any */
+.mySwiper .swiper-slide {
+ padding: 0;
+ margin: 0;
+}
+.about-me-slider .swiper-slide {
+ display: flex !important;
+ align-items: center;
+ justify-content: center;
+ width: auto !important;
+}
+.blockContent .wrapper h3 {
+ font-size: 48px;
+ font-weight: 600;
+ margin-top: 30px;
+ margin-bottom: 8px;
+}
+.blockContent .wrapper:first-of-type h3 {
+ margin-top: 0;
+}
+
+.wrapper p {
+ font-size: 24px;
+ font-weight: 500;
+}
+.custom-select {
+ background-color: transparent;
+ border: 1px solid #ffffff42;
+ color: white;
+ padding: 10px;
+ border-radius: 8px;
+ font-size: 16px;
+}
+
+.custom-select option {
+ background-color: #2e3238;
+ color: white;
+}
+
+.custom-select option:hover {
+ background-color: #555 !important;
+}
+
+
+
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #d69200d0;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999999999999;
+    transform: translate(-50%, -50%);
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.87);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999999999999;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes cursorAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.expand {
+    animation: cursorAnim 0.5s forwards;
+}
+
+@media (max-width: 768px) {
+    .cursor, .dot {
+        opacity: 0;
+    }
+} 
+/* In globals.css */
+.bebas-neue {
+    font-family: 'Bebas Neue', cursive, sans-serif;
+  }
+
+.section-title {
+  @apply bebas-neue text-[120px] font-normal leading-[100%] uppercase;
+}
+
+.section-title-mobile {
+  @apply bebas-neue text-[120px] font-normal leading-[100%] uppercase;
+}
+
+
