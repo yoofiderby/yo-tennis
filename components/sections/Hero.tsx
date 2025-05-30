@@ -142,9 +142,9 @@ const Hero = ({
    </div>
 
    {/* Content */}
-   <div className="relative container mx-auto px-4 min-h-[90vh] sm:min-h-screen flex flex-col justify-end sm:justify-end pb-8 sm:pb-20">
-    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between w-full gap-8 sm:gap-4 -mt-8 sm:mt-0">
-      {/* Left side - Headings */}
+   <div className="relative container mx-auto px-4 min-h-[90vh] sm:min-h-screen flex flex-col justify-center sm:justify-end pb-8 sm:pb-32 pt-20">
+    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between w-full gap-8 sm:gap-4">
+      {/* Left side - Headings and CTA */}
       <div className="w-full sm:max-w-4xl" ref={headingRef}>
        <SectionTitle 
         variant="gradient"
@@ -160,45 +160,45 @@ const Hero = ({
        >
         {mainHeading}
        </SectionTitle>
-      </div>
-
-      {/* Right side - Testimonials */}
-      <div
-       ref={testimonialRef}
-       className="flex flex-col items-center sm:items-start"
-      >
-       {/* Testimonial Images */}
-       <div className="inline-flex bg-white/10 backdrop-blur-sm rounded-full p-3 px-6 -space-x-4 mb-4">
-        {testimonialImages?.map((image, index) => (
-         <div
-          key={`testimonial-${image.asset._ref}-${index}`}
-          className="w-12 h-12 sm:w-12 sm:h-12 rounded-full overflow-hidden relative"
-          style={{ zIndex: testimonialImages.length - index }}
-         >
-          <Image
-           src={urlFor(image.asset).url()}
-           alt={image.alt || `Testimonial ${index + 1}`}
-           fill
-           className="object-cover"
-           loading="lazy"
-           sizes="48px"
-          />
-         </div>
-        ))}
-       </div>
-
-       {/* Testimonial Text */}
-       <p className="font-sans text-base sm:text-lg font-medium text-white mb-4 text-center sm:text-left max-w-xs">
-        {testimonialText}
-       </p>
-
        {/* CTA Button */}
        {button && (
-         <div className="w-full flex justify-center sm:justify-start">
+         <div className="mt-8 w-full flex justify-center sm:justify-start">
            <Button {...button} />
          </div>
        )}
       </div>
+
+      {/* Testimonial Section */}
+      {testimonialImages?.length > 0 && testimonialText && (
+        <div
+          ref={testimonialRef}
+          className="flex flex-col items-center sm:items-start"
+        >
+          {/* Testimonial Images */}
+          <div className="inline-flex bg-white/10 backdrop-blur-sm rounded-full p-3 px-6 -space-x-4 mb-4">
+            {testimonialImages.map((image, index) => (
+              <div
+                key={`testimonial-${image.asset._ref}-${index}`}
+                className="w-12 h-12 sm:w-12 sm:h-12 rounded-full overflow-hidden relative"
+                style={{ zIndex: testimonialImages.length - index }}
+              >
+                <Image
+                  src={urlFor(image.asset).url()}
+                  alt={image.alt || `Testimonial ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                  sizes="48px"
+                />
+              </div>
+            ))}
+          </div>
+          {/* Testimonial Text */}
+          <p className="font-sans text-base sm:text-lg font-medium text-white mb-4 text-center sm:text-left max-w-xs">
+            {testimonialText}
+          </p>
+        </div>
+      )}
     </div>
    </div>
   </section>
