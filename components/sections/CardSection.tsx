@@ -4,9 +4,9 @@ import SectionTitle from '@/components/sectionTitle'
 
 const CardSection = ({ sectionHeader, cards }: CardSectionType) => {
   return (
-    <div className="sm:py-32  mb-16">
+    <div className="sm:py-32 mb-16">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-2xl p4">
+        <div className=" mx-auto text-center px-4">
           <SectionTitle
             variant="primary"
             size="default"
