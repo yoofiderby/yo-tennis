@@ -4,7 +4,6 @@ export default function TimeSlot({
   slot,
   isSelected,
   onSelect,
-  totalSessions,
   formattedStartTime,
   formattedEndTime,
   formattedStartDate,
