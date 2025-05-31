@@ -7,6 +7,8 @@ import Button from '@/components/Button'
 import { urlFor } from '@/sanity/lib/image'
 import { HeroDataProps } from '@/interfaces/hero'
 import SectionTitle from '@/components/sectionTitle'
+// Import icons for mute/unmute
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'
 
 const Hero = ({
  backgroundVideo,
@@ -21,8 +23,16 @@ const Hero = ({
  const testimonialRef = useRef(null)
  const videoRef = useRef<HTMLVideoElement>(null)
  const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+ const [isMuted, setIsMuted] = useState(true)
  const retryCountRef = useRef(0)
  const maxRetries = 3
+
+ const toggleMute = () => {
+   if (videoRef.current) {
+     videoRef.current.muted = !videoRef.current.muted
+     setIsMuted(videoRef.current.muted)
+   }
+ }
 
  const loadVideo = () => {
    if (!videoRef.current || !backgroundVideo?.url) return
@@ -31,6 +41,7 @@ const Hero = ({
    
    // Reset video state
    video.load()
+   video.muted = isMuted
    
    // Add event listeners
    const handleLoadedData = () => {
@@ -122,12 +133,20 @@ const Hero = ({
            ref={videoRef}
            className={`absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-500 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}
            autoPlay
-           muted
+           muted={isMuted}
            loop
            playsInline
            preload="auto"
            src={backgroundVideo.url}
          />
+         {/* Mute/Unmute Button */}
+         <button
+           onClick={toggleMute}
+           className="absolute bottom-4 right-4 z-10 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 border border-white/20"
+           aria-label={isMuted ? "Unmute video" : "Mute video"}
+         >
+           {isMuted ? <FaVolumeMute size={20} /> : <FaVolumeUp size={20} />}
+         </button>
        </>
      ) : backgroundImage && (
        <Image
