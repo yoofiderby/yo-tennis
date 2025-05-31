@@ -8,7 +8,7 @@ const thunder = localFont({
   variable: '--font-thunder',
 })
 
-export default function TeamSection({ heading, backgroundHeading, teamMembers }: TeamSectionProps) {
+export default function TeamSection({  backgroundHeading, teamMembers }: TeamSectionProps) {
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Background Text */}
@@ -20,11 +20,18 @@ export default function TeamSection({ heading, backgroundHeading, teamMembers }:
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 max-w-4xl mx-auto relative z-10">
           <SectionTitle
-            variant="primary"
+            variant="gradient"
             size="large"
             as="h2"
           >
-            {heading}
+            Have a love for people & Tennis? Shoot us an email why you&apos;re the next superstar cardio instructor!
+          </SectionTitle>
+          <SectionTitle
+            variant="gradient"
+            size="large"
+            as="h2"
+          >
+           Info@yotennis@gmail.com
           </SectionTitle>
         </div>
 
