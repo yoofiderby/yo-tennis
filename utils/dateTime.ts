@@ -7,11 +7,15 @@ export function getDayName(dayNumber: string) {
 }
 
 /**
- * Format time to 12-hour format
+ * Format time to 12-hour format in Pakistan time
  */
 export function formatTime(time: string) {
   if (!time) return ''
-  return new Date(`2000-01-01T${time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  // Parse hours and minutes from the time string
+  const [hours, minutes] = time.split(':').map(Number)
+  const period = hours >= 12 ? 'PM' : 'AM'
+  const displayHours = hours % 12 || 12
+  return `${displayHours}:${minutes.toString().padStart(2, '0')} ${period}`
 }
 
 /**
@@ -45,18 +49,16 @@ export function calculateTotalSessions(dayOfWeek: string, startDate: string, end
 }
 
 /**
- * Format date to long format (e.g., "January 1, 2024")
+ * Format date to long format (e.g., "January 1, 2024") in Pakistan time
  */
 export function formatDate(date: string) {
   if (!date) return ''
   try {
-    const dateObj = new Date(date)
-    if (isNaN(dateObj.getTime())) return ''
-    return dateObj.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    // Create date object with explicit Pakistan timezone (UTC+5)
+    const [year, month, day] = date.split('-').map(Number)
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                   'July', 'August', 'September', 'October', 'November', 'December']
+    return `${months[month - 1]} ${day}, ${year}`
   } catch (error) {
     console.error('Error formatting date:', error)
     return ''
