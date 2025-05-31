@@ -24,9 +24,6 @@ export default function TimeSlot({
           <p className="font-medium text-gray-900">
             {formattedStartTime} - {formattedEndTime}
           </p>
-          <p className="text-sm text-gray-500">
-            {totalSessions} sessions
-          </p>
         </div>
         <div className="text-right">
           <p className="text-sm text-gray-500">
