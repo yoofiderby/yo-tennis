@@ -4,7 +4,6 @@ export default function TimeSlot({
   slot,
   isSelected,
   onSelect,
-  totalSessions,
   formattedStartTime,
   formattedEndTime,
   formattedStartDate,
@@ -23,9 +22,6 @@ export default function TimeSlot({
         <div>
           <p className="font-medium text-gray-900">
             {formattedStartTime} - {formattedEndTime}
-          </p>
-          <p className="text-sm text-gray-500">
-            {totalSessions} sessions
           </p>
         </div>
         <div className="text-right">
