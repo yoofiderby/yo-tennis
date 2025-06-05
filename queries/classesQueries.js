@@ -6,7 +6,7 @@ export const getAllCategoriesQuery = `*[_type == "category"] {
   slug
 }`
 
-export const getAllClassesQuery = `*[_type == "class"] {
+export const getAllClassesQuery = `*[_type == "class"] | order(_updatedAt desc) {
   _id,
   title,
   slug,
